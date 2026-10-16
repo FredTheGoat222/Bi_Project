@@ -4,8 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
-    
+    <div class="nav">
+        <ul class="ul1">
+            <li><a href=""><img src="../image/Gemini_Generated_Image_g85dxg85dxg85dxg-removebg-preview.png" alt=""></a></li>
+            <li><a href="">Mua Sắm</a></li>
+            <li><a href="">Liên Hệ</a></li>
+            <li><a href="">Đối Tác</a></li>
+        </ul>
+
+        <ul class="ul2">
+            <li><a href=""><img src="../image/shopping-cart-white-icon.png" alt="" style="height: 90px;"></a></li>
+            <li><a href=""><img src="../image/Gemini_Generated_Image_h20d89h20d89h20d(1).png" alt=""></a></li>
+        </ul>
+    </div>
+
+    <div class="banner">
+        <div class="slider">
+            <img src="image/{6AB3FA0C-68EB-41AB-A1A2-E0BDC80D594D}.png">
+            <img src="image/{BFAB189C-6145-40FC-9D5C-350C32DB1D5D}.png">
+            <img src="image/thumb iPhone 16 -  2.jpg">
+            <img src="image/{6AB3FA0C-68EB-41AB-A1A2-E0BDC80D594D}.png">
+        </div>
+    </div>
 </body>
 </html>
+
+<script>
+    const slider = document.querySelector(".slider");
+    const total = slider.children.length;   // 6 (đã tính bản sao)
+    let current = 0;
+
+    setInterval(() => {
+        current++;
+        slider.style.transition = "transform 1s ease-in-out";
+        slider.style.transform = `translateX(-${current * 100}%)`;
+
+        if (current === total - 1) {
+            setTimeout(() => {
+                slider.style.transition = "none";
+                slider.style.transform = "translateX(0)";
+                current = 0;
+            }, 1000);
+        }
+    }, 5000);
+</script>

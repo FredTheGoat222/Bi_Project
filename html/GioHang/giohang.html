@@ -5,22 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Giỏ hàng - ĐộMobile</title>
 
-    <!-- CSS menu trang chủ -->
     <link rel="stylesheet" href="../../css/index.css" />
-
-    <!-- CSS giỏ hàng -->
     <link rel="stylesheet" href="../../css/GioHang/giohang.css" />
-
-    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
-    <!-- JAVASCRIPT GIỎ HÀNG -->
-    <script src="../../js/giohang.js"></script>
+
+    <script src="../../js/giohang.js" defer></script>
   </head>
+
   <body>
-    <!-- MENU ĐIỀU HƯỚNG -->
+    <!-- MENU -->
     <div class="nav">
       <ul class="ul1">
         <li>
@@ -31,7 +27,6 @@
             />
           </a>
         </li>
-
         <li><a href="../MuaSam/muasam.html">Mua Sắm</a></li>
         <li><a href="../LienHe/lienhe.html">Liên Hệ</a></li>
         <li><a href="../DoiTac/doitac.html">Đối Tác</a></li>
@@ -47,7 +42,6 @@
             />
           </a>
         </li>
-
         <li>
           <a href="../DangNhap/dangnhap.html">
             <img
@@ -59,37 +53,29 @@
       </ul>
     </div>
 
-    <!-- HEADER GIỎ HÀNG -->
+    <!-- TIẾN TRÌNH ĐẶT HÀNG -->
     <header class="cart-header">
       <div class="container header-container">
         <div class="checkout-steps">
-          <span class="step active">
-            <i class="fa-solid fa-cart-shopping"></i>
-            Giỏ hàng
+          <span class="step active" id="step-cart">
+            <i class="fa-solid fa-cart-shopping"></i> Giỏ hàng
           </span>
-
           <span class="step-line"></span>
-
-          <span class="step">
-            <i class="fa-solid fa-id-card"></i>
-            Thông tin đặt hàng
+          <span class="step" id="step-info">
+            <i class="fa-solid fa-id-card"></i> Thông tin đặt hàng
           </span>
-
           <span class="step-line"></span>
-
-          <span class="step">
-            <i class="fa-solid fa-circle-check"></i>
-            Hoàn tất
+          <span class="step" id="step-done">
+            <i class="fa-solid fa-circle-check"></i> Hoàn tất
           </span>
         </div>
       </div>
     </header>
 
-    <!-- NỘI DUNG GIỎ HÀNG -->
-    <main class="cart-page">
+    <!-- TRANG GIỎ HÀNG -->
+    <main class="cart-page" id="cart-page">
       <div class="container">
         <div class="cart-layout">
-          <!-- CỘT TRÁI -->
           <section class="cart-main-content">
             <div class="freeship-bar">
               <div class="freeship-text">
@@ -97,7 +83,6 @@
                 Miễn phí vận chuyển cho đơn hàng từ
                 <strong>5.000.000₫</strong>
               </div>
-
               <div class="progress-bar">
                 <div
                   class="progress-fill"
@@ -107,26 +92,21 @@
               </div>
             </div>
 
-            <!-- DANH SÁCH SẢN PHẨM -->
             <div class="cart-box">
               <div class="cart-box-header">
                 <h2>
                   Sản phẩm trong giỏ hàng (<span id="cart-count">0</span>)
                 </h2>
-
                 <button type="button" class="btn-clear-all" id="clear-cart-btn">
                   <i class="fa-regular fa-trash-can"></i>
                   Xóa tất cả
                 </button>
               </div>
-
               <div class="cart-items-list" id="cart-items-container"></div>
             </div>
           </section>
 
-          <!-- CỘT PHẢI -->
           <aside class="cart-sidebar">
-            <!-- VOUCHER -->
             <div class="sidebar-box coupon-box">
               <h3>
                 <i class="fa-solid fa-ticket"></i>
@@ -139,7 +119,6 @@
                   placeholder="Nhập mã ưu đãi..."
                   id="coupon-code"
                 />
-
                 <button type="button" id="apply-coupon-btn">Áp dụng</button>
               </div>
 
@@ -151,7 +130,6 @@
                   <span>DOMOBILE500K</span>
                   <small>Giảm 500.000₫ cho đơn từ 20 triệu</small>
                 </div>
-
                 <div
                   class="coupon-tag"
                   onclick="applySuggestedCoupon('MIXIGAMING')"
@@ -162,7 +140,6 @@
               </div>
             </div>
 
-            <!-- TÓM TẮT ĐƠN HÀNG -->
             <div class="sidebar-box summary-box">
               <h3>Tóm tắt đơn hàng</h3>
 
@@ -170,14 +147,12 @@
                 <span>Tạm tính:</span>
                 <span class="summary-value" id="subtotal-val">0₫</span>
               </div>
-
               <div class="summary-row">
                 <span>Giảm giá Voucher:</span>
                 <span class="summary-value text-discount" id="discount-val"
                   >-0₫</span
                 >
               </div>
-
               <div class="summary-row">
                 <span>Phí vận chuyển:</span>
                 <span class="summary-value text-free" id="shipping-val"
@@ -189,7 +164,6 @@
 
               <div class="summary-row total-row">
                 <span>Tổng tiền thanh toán:</span>
-
                 <div class="total-price-wrapper">
                   <span class="total-price" id="total-val">0₫</span>
                   <small>Đã bao gồm VAT</small>
@@ -206,12 +180,10 @@
                   <i class="fa-solid fa-shield-halved"></i>
                   Cam kết chính hãng 100%
                 </div>
-
                 <div class="trust-item">
                   <i class="fa-solid fa-rotate-left"></i>
                   1 đổi 1 trong 30 ngày lỗi NSX
                 </div>
-
                 <div class="trust-item">
                   <i class="fa-solid fa-truck-ramp-box"></i>
                   Giao hàng hỏa tốc 2H
@@ -222,5 +194,199 @@
         </div>
       </div>
     </main>
+
+    <!-- TRANG THÔNG TIN ĐẶT HÀNG -->
+    <main class="cart-page" id="info-page" style="display: none">
+      <div class="container">
+        <h1>Thông tin đặt hàng</h1>
+        <p>Vui lòng nhập thông tin người nhận hàng.</p>
+
+        <form id="checkout-form">
+          <div class="checkout-layout">
+            <section class="cart-box order-form-box">
+              <h2><i class="fa-solid fa-user"></i> Thông tin người nhận</h2>
+
+              <div class="order-field">
+                <label for="fullname">Họ và tên <span>*</span></label>
+                <input
+                  type="text"
+                  id="fullname"
+                  name="fullname"
+                  maxlength="100"
+                  autocomplete="name"
+                  required
+                  placeholder="Nhập họ và tên"
+                />
+              </div>
+
+              <div class="order-field">
+                <label for="phone">Số điện thoại <span>*</span></label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  pattern="0[0-9]{9}"
+                  maxlength="10"
+                  title="Số điện thoại gồm 10 chữ số và bắt đầu bằng 0"
+                  autocomplete="tel"
+                  required
+                  placeholder="VD: 0912345678"
+                />
+              </div>
+
+              <div class="order-field">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  maxlength="150"
+                  autocomplete="email"
+                  placeholder="example@gmail.com"
+                />
+              </div>
+
+              <h2>
+                <i class="fa-solid fa-location-dot"></i> Địa chỉ giao hàng
+              </h2>
+
+              <div class="order-field">
+                <label for="city">Tỉnh / Thành phố <span>*</span></label>
+                <input
+                  type="text"
+                  id="city"
+                  name="city"
+                  maxlength="100"
+                  required
+                  placeholder="Nhập tỉnh hoặc thành phố"
+                />
+              </div>
+
+              <div class="order-field">
+                <label for="district">Quận / Huyện</label>
+                <input
+                  type="text"
+                  id="district"
+                  name="district"
+                  maxlength="100"
+                  placeholder="Nhập quận / huyện"
+                />
+              </div>
+
+              <div class="order-field">
+                <label for="ward">Phường / Xã</label>
+                <input
+                  type="text"
+                  id="ward"
+                  name="ward"
+                  maxlength="100"
+                  placeholder="Nhập phường / xã"
+                />
+              </div>
+
+              <div class="order-field">
+                <label for="address">Địa chỉ cụ thể <span>*</span></label>
+                <input
+                  type="text"
+                  id="address"
+                  name="address"
+                  maxlength="250"
+                  autocomplete="street-address"
+                  required
+                  placeholder="Số nhà, tên đường..."
+                />
+              </div>
+
+              <div class="order-field">
+                <label for="note">Ghi chú đơn hàng</label>
+                <textarea
+                  id="note"
+                  name="note"
+                  rows="3"
+                  maxlength="500"
+                  placeholder="Ghi chú khi giao hàng..."
+                ></textarea>
+              </div>
+
+              <h2><i class="fa-solid fa-credit-card"></i> Thanh toán</h2>
+
+              <label class="payment-option">
+                <input type="radio" name="payment" value="cod" checked />
+                <span>
+                  <strong>Thanh toán khi nhận hàng (COD)</strong>
+                  <small>Thanh toán khi nhận điện thoại.</small>
+                </span>
+              </label>
+
+              <label class="payment-option">
+                <input type="radio" name="payment" value="bank" />
+                <span>
+                  <strong>Chuyển khoản ngân hàng</strong>
+                  <small>Thông tin chuyển khoản được xác nhận sau.</small>
+                </span>
+              </label>
+
+              <p id="form-message" role="alert" style="color: #d93025"></p>
+            </section>
+
+            <aside class="cart-sidebar">
+              <div class="sidebar-box summary-box">
+                <h3>Đơn hàng của bạn</h3>
+                <div id="checkout-products"></div>
+
+                <div class="summary-row">
+                  <span>Tạm tính:</span>
+                  <strong id="checkout-subtotal">0₫</strong>
+                </div>
+                <div class="summary-row">
+                  <span>Giảm giá:</span>
+                  <strong id="checkout-discount">0₫</strong>
+                </div>
+                <div class="summary-row">
+                  <span>Phí vận chuyển:</span>
+                  <strong id="checkout-shipping">0₫</strong>
+                </div>
+                <hr />
+
+                <div class="summary-row total-row">
+                  <span>Tổng thanh toán:</span>
+                  <strong id="checkout-total">0₫</strong>
+                </div>
+
+                <button type="submit" form="checkout-form" class="btn-checkout">
+                  XÁC NHẬN ĐẶT HÀNG
+                  <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+                <button type="button" id="back-to-cart" class="back-cart-btn">
+                  <i class="fa-solid fa-arrow-left"></i>
+                  Quay lại giỏ hàng
+                </button>
+              </div>
+            </aside>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <!-- TRANG HOÀN TẤT -->
+    <main class="cart-page" id="done-page" style="display: none">
+      <div class="container">
+        <section class="cart-box order-success">
+          <i class="fa-solid fa-circle-check"></i>
+          <h1>Đặt hàng thành công!</h1>
+          <p>Cảm ơn anh/chị đã mua hàng tại ĐộMobile.</p>
+          <p>Mã đơn hàng: <strong id="success-order-id"></strong></p>
+          <p>Tổng thanh toán: <strong id="success-total"></strong></p>
+          <a href="../MuaSam/muasam.html" class="continue-shopping">
+            Tiếp tục mua sắm
+          </a>
+        </section>
+      </div>
+    </main>
+
+    <footer class="checkout-footer">
+      <p>&copy; 2026 ĐộMobile. All rights reserved.</p>
+    </footer>
   </body>
 </html>

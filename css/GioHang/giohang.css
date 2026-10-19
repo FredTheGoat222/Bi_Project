@@ -448,3 +448,158 @@ body {
     margin-top: 10px;
   }
 }
+.checkout-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.order-form-box {
+  padding: 25px;
+}
+
+.order-form-box h2 {
+  margin: 0 0 22px;
+  font-size: 20px;
+}
+
+.order-form-box h2:not(:first-child) {
+  margin-top: 30px;
+}
+
+.order-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.order-field label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.order-field label span {
+  color: #e53935;
+}
+
+.order-field input,
+.order-field textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d5d9e0;
+  border-radius: 7px;
+  font: inherit;
+  box-sizing: border-box;
+}
+
+.order-field input:focus,
+.order-field textarea:focus {
+  outline: none;
+  border-color: #e53935;
+}
+
+.payment-option {
+  display: flex;
+  gap: 12px;
+  padding: 15px;
+  margin-bottom: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.payment-option span {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.payment-option small {
+  color: #777;
+}
+
+.checkout-product {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.checkout-product img {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+}
+
+.checkout-product-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.checkout-product-info strong,
+.checkout-product-info small {
+  display: block;
+  overflow-wrap: anywhere;
+}
+
+.checkout-product-info small {
+  margin-top: 5px;
+  color: #777;
+}
+
+.checkout-product > strong {
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.back-cart-btn {
+  width: 100%;
+  margin-top: 14px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 7px;
+  background: white;
+  cursor: pointer;
+}
+
+.back-cart-btn:hover {
+  color: #e53935;
+}
+
+.order-success {
+  padding: 45px 20px;
+  text-align: center;
+}
+
+.order-success > i {
+  color: #28a745;
+  font-size: 60px;
+}
+
+.order-success h1 {
+  margin: 20px 0;
+}
+
+.continue-shopping {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 13px 22px;
+  border-radius: 7px;
+  background: #e53935;
+  color: white;
+  text-decoration: none;
+}
+
+.checkout-footer {
+  padding: 20px;
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  .checkout-layout {
+    grid-template-columns: 1fr;
+  }
+}

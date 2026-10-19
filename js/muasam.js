@@ -1,10 +1,5 @@
 "use strict";
 
-/* =====================================================
-   ĐỘMOBILE - JAVASCRIPT CHO TRANG MUA SẮM
-   File: js/muasam.js
-   ===================================================== */
-
 document.addEventListener("DOMContentLoaded", function() {
 
     // ================= 1. LẤY CÁC PHẦN TỬ HTML =================

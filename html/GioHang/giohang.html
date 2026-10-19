@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giỏ hàng - ĐộMobile</title>
+
+    <!-- CSS menu trang chủ -->
+    <link rel="stylesheet" href="../../css/index.css" />
+
+    <!-- CSS giỏ hàng -->
+    <link rel="stylesheet" href="../../css/GioHang/giohang.css" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <!-- JAVASCRIPT GIỎ HÀNG -->
+    <script src="../../js/giohang.js"></script>
+  </head>
+  <body>
+    <!-- MENU ĐIỀU HƯỚNG -->
+    <div class="nav">
+      <ul class="ul1">
+        <li>
+          <a href="../../index.html">
+            <img
+              src="../../image/Gemini_Generated_Image_g85dxg85dxg85dxg-removebg-preview.png"
+              alt="ĐộMobile"
+            />
+          </a>
+        </li>
+
+        <li><a href="../MuaSam/muasam.html">Mua Sắm</a></li>
+        <li><a href="../LienHe/lienhe.html">Liên Hệ</a></li>
+        <li><a href="../DoiTac/doitac.html">Đối Tác</a></li>
+      </ul>
+
+      <ul class="ul2">
+        <li>
+          <a href="giohang.html">
+            <img
+              src="../../image/shopping-cart-white-icon.png"
+              alt="Giỏ hàng"
+              style="height: 40px"
+            />
+          </a>
+        </li>
+
+        <li>
+          <a href="../DangNhap/dangnhap.html">
+            <img
+              src="../../image/Gemini_Generated_Image_h20d89h20d89h20d(1).png"
+              alt="Đăng nhập"
+            />
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- HEADER GIỎ HÀNG -->
+    <header class="cart-header">
+      <div class="container header-container">
+        <div class="checkout-steps">
+          <span class="step active">
+            <i class="fa-solid fa-cart-shopping"></i>
+            Giỏ hàng
+          </span>
+
+          <span class="step-line"></span>
+
+          <span class="step">
+            <i class="fa-solid fa-id-card"></i>
+            Thông tin đặt hàng
+          </span>
+
+          <span class="step-line"></span>
+
+          <span class="step">
+            <i class="fa-solid fa-circle-check"></i>
+            Hoàn tất
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <!-- NỘI DUNG GIỎ HÀNG -->
+    <main class="cart-page">
+      <div class="container">
+        <div class="cart-layout">
+          <!-- CỘT TRÁI -->
+          <section class="cart-main-content">
+            <div class="freeship-bar">
+              <div class="freeship-text">
+                <i class="fa-solid fa-truck-fast"></i>
+                Miễn phí vận chuyển cho đơn hàng từ
+                <strong>5.000.000₫</strong>
+              </div>
+
+              <div class="progress-bar">
+                <div
+                  class="progress-fill"
+                  id="freeship-progress"
+                  style="width: 0%"
+                ></div>
+              </div>
+            </div>
+
+            <!-- DANH SÁCH SẢN PHẨM -->
+            <div class="cart-box">
+              <div class="cart-box-header">
+                <h2>
+                  Sản phẩm trong giỏ hàng (<span id="cart-count">0</span>)
+                </h2>
+
+                <button type="button" class="btn-clear-all" id="clear-cart-btn">
+                  <i class="fa-regular fa-trash-can"></i>
+                  Xóa tất cả
+                </button>
+              </div>
+
+              <div class="cart-items-list" id="cart-items-container"></div>
+            </div>
+          </section>
+
+          <!-- CỘT PHẢI -->
+          <aside class="cart-sidebar">
+            <!-- VOUCHER -->
+            <div class="sidebar-box coupon-box">
+              <h3>
+                <i class="fa-solid fa-ticket"></i>
+                Mã giảm giá / Voucher
+              </h3>
+
+              <div class="coupon-input-group">
+                <input
+                  type="text"
+                  placeholder="Nhập mã ưu đãi..."
+                  id="coupon-code"
+                />
+
+                <button type="button" id="apply-coupon-btn">Áp dụng</button>
+              </div>
+
+              <div class="suggested-coupons">
+                <div
+                  class="coupon-tag"
+                  onclick="applySuggestedCoupon('DOMOBILE500K')"
+                >
+                  <span>DOMOBILE500K</span>
+                  <small>Giảm 500.000₫ cho đơn từ 20 triệu</small>
+                </div>
+
+                <div
+                  class="coupon-tag"
+                  onclick="applySuggestedCoupon('MIXIGAMING')"
+                >
+                  <span>MIXIGAMING</span>
+                  <small>Giảm 2% tổng đơn hàng</small>
+                </div>
+              </div>
+            </div>
+
+            <!-- TÓM TẮT ĐƠN HÀNG -->
+            <div class="sidebar-box summary-box">
+              <h3>Tóm tắt đơn hàng</h3>
+
+              <div class="summary-row">
+                <span>Tạm tính:</span>
+                <span class="summary-value" id="subtotal-val">0₫</span>
+              </div>
+
+              <div class="summary-row">
+                <span>Giảm giá Voucher:</span>
+                <span class="summary-value text-discount" id="discount-val"
+                  >-0₫</span
+                >
+              </div>
+
+              <div class="summary-row">
+                <span>Phí vận chuyển:</span>
+                <span class="summary-value text-free" id="shipping-val"
+                  >Miễn phí</span
+                >
+              </div>
+
+              <hr class="summary-divider" />
+
+              <div class="summary-row total-row">
+                <span>Tổng tiền thanh toán:</span>
+
+                <div class="total-price-wrapper">
+                  <span class="total-price" id="total-val">0₫</span>
+                  <small>Đã bao gồm VAT</small>
+                </div>
+              </div>
+
+              <button type="button" class="btn-checkout" id="checkout-btn">
+                TIẾP TỤC ĐẶT HÀNG
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+
+              <div class="trust-features">
+                <div class="trust-item">
+                  <i class="fa-solid fa-shield-halved"></i>
+                  Cam kết chính hãng 100%
+                </div>
+
+                <div class="trust-item">
+                  <i class="fa-solid fa-rotate-left"></i>
+                  1 đổi 1 trong 30 ngày lỗi NSX
+                </div>
+
+                <div class="trust-item">
+                  <i class="fa-solid fa-truck-ramp-box"></i>
+                  Giao hàng hỏa tốc 2H
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

@@ -6,12 +6,12 @@
 
 .nav{
     width: 100%;
-    height: 125px;
+    height: 50px;
     background-color: cornflowerblue;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    font-size: 30px;
+    font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
 }
@@ -47,8 +47,8 @@
     color: cornflowerblue;
 }
 
-.ul1 img{ height: 150px; display: block; }
-.ul2 img{ height: 90px;  display: block; }
+.ul1 img{ height: 90px; display: block; }
+.ul2 img{ height: 50px;  display: block; }
 
 .banner{
     width: 100%;
@@ -68,4 +68,85 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
+}
+
+/* ===== GIỚI THIỆU ===== */
+.about{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    padding: 60px 70px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.about-text{
+    flex: 1;
+}
+
+.about-text h2{
+    font-size: 36px;
+    color: cornflowerblue;
+    margin-bottom: 16px;
+}
+
+.about-text p{
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 16px;
+}
+
+.about-text ul{
+    list-style: none;
+}
+
+.about-text ul li{
+    font-size: 18px;
+    padding: 6px 0;
+    color: #333;
+}
+
+.about-text ul li::before{
+    content: "✔ ";
+    color: cornflowerblue;
+    font-weight: bold;
+}
+
+.about-images{
+    flex: 1;
+    display: flex;
+    gap: 20px;
+}
+
+.about-images img{
+    width: 50%;
+    height: 300px;
+    object-fit: cover;        /* ảnh nào cũng được cắt gọn, không méo */
+    border-radius: 12px;
+}
+
+/* ===== FOOTER ===== */
+.footer{
+    background-color: cornflowerblue;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.footer h3{
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.footer p{
+    font-size: 16px;
+    margin-top: 6px;
+}
+
+.footer a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
 }

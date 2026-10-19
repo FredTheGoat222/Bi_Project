@@ -1,11 +1,219 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mua sắm - ĐộMobile</title>
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/MuaSam/muasam.css">
+    <script src="../../js/muasam.js"></script>
 </head>
+
 <body>
-    
+    <header>
+        <nav class="nav">
+            <ul class="ul1">
+                <li>
+                    <a href="../../index.html"><img src="../../image/Gemini_Generated_Image_g85dxg85dxg85dxg-removebg-preview.png" alt="Logo ĐộMobile"></a>
+                </li>
+                <li><a href="../../index.html">Trang chủ</a></li>
+                <li><a href="muasam.html">Mua sắm</a></li>
+                <li><a href="../LienHe/lienhe.html">Liên hệ</a></li>
+                <li><a href="../DoiTac/doitac.html">Đối tác</a></li>
+            </ul>
+            <ul class="ul2">
+                <li>
+                    <a href="../GioHang/giohang.html">
+                        <img src="../../image/shopping-cart-white-icon.png" alt="Giỏ hàng">
+                    </a>
+                </li>
+                <li>
+                    <a href="../DangNhap/dangnhap.html">
+                        <img src="../../image/Gemini_Generated_Image_h20d89h20d89h20d(1).png" alt="Đăng nhập">
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="shopping-banner">
+            <img src="../../image/{6AB3FA0C-68EB-41AB-A1A2-E0BDC80D594D}.png" alt="Banner điện thoại ĐộMobile">
+        </div>
+    </header>
+
+    <main class="shopping-content">
+        <section class="filter-section">
+            <div class="filter-heading">
+                <h2>Bộ lọc sản phẩm</h2>
+                <button type="reset" form="filter-form" class="reset-button">
+                    Đặt lại
+                </button>
+            </div>
+
+            <form id="filter-form">
+
+                <div class="filter-group">
+                    <h3>Danh mục</h3>
+                    <label>
+                        <input type="checkbox" name="category" value="iphone">iPhone
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="category" value="samsung">Samsung
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="category" value="xiaomi">Xiaomi
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="category" value="oppo">Oppo
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="category" value="vivo">Vivo
+                    </label>
+                </div>
+
+                <div class="filter-group">
+                    <h3>Mức giá</h3>
+                    <label>
+                        <input type="radio" name="price" value="under5">Dưới 5 triệu
+                    </label>
+
+                    <label>
+                        <input type="radio" name="price" value="5to10">5 - 10 triệu
+                    </label>
+
+                    <label>
+                        <input type="radio" name="price" value="10to20">10 - 20 triệu
+                    </label>
+
+                    <label>
+                        <input type="radio" name="price" value="over20">Trên 20 triệu
+                    </label>
+                </div>
+
+                <div class="filter-group">
+                    <h3>Dung lượng</h3>
+                    <label>
+                        <input type="checkbox" name="storage" value="128GB">128GB
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="storage" value="256GB">256GB
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="storage" value="512GB">512GB
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="storage" value="1TB">1TB
+                    </label>
+                </div>
+
+                <div class="filter-group">
+                    <h3>Tình trạng</h3>
+                    <label>
+                        <input type="radio" name="condition" value="new">Máy mới
+                    </label>
+
+                    <label>
+                        <input type="radio" name="condition" value="used">Máy cũ
+                    </label>
+                </div>
+
+                <button type="submit" class="filter-button">Áp dụng bộ lọc</button>
+            </form>
+        </section>
+
+
+        <aside class="product-aside">
+
+            <div class="search-bar">
+                <input type="search" id="search-input" placeholder="Tìm kiếm điện thoại, thương hiệu...">
+
+                <button type="button" id="search-button">Tìm kiếm</button>
+            </div>
+
+            <div class="product-toolbar">
+                <p>Danh sách sản phẩm</p>
+                <select id="sort-products">
+                    <option value="">Sắp xếp theo</option>
+                    <option value="asc">Giá tăng dần</option>
+                    <option value="desc">Giá giảm dần</option>
+                    <option value="name">Tên sản phẩm</option>
+                </select>
+            </div>
+
+            <div class="product-list">
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="../../image/iphone-16-black.png" alt="iPhone 16">
+                    </div>
+
+                    <div class="product-info">
+                        <h3>iPhone 16</h3>
+                        <p class="product-brand">Apple</p>
+                        <p class="product-price">19.990.000 đ</p>
+
+                        <button type="button" class="add-cart-button">Thêm vào giỏ hàng</button>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="../../image/samsung-galaxy.jpg" alt="Điện thoại Samsung">
+                    </div>
+
+                    <div class="product-info">
+                        <h3>Samsung Galaxy</h3>
+                        <p class="product-brand">Samsung</p>
+                        <p class="product-price">14.990.000 đ</p>
+
+                        <button type="button" class="add-cart-button">Thêm vào giỏ hàng</button>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="../../image/xiaomi.jpg" alt="Điện thoại Xiaomi">
+                    </div>
+
+                    <div class="product-info">
+                        <h3>Xiaomi Redmi</h3>
+                        <p class="product-brand">Xiaomi</p>
+                        <p class="product-price">6.990.000 đ</p>
+
+                        <button type="button" class="add-cart-button">Thêm vào giỏ hàng</button>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="../../image/oppo.png" alt="Điện thoại Oppo">
+                    </div>
+
+                    <div class="product-info">
+                        <h3>Oppo Reno</h3>
+                        <p class="product-brand">Oppo</p>
+                        <p class="product-price">8.990.000 đ</p>
+
+                        <button type="button" class="add-cart-button">Thêm vào giỏ hàng</button>
+                    </div>
+                </article>
+            </div>
+        </aside>
+    </main>
+
+    <footer class="footer">
+        <h3>ĐộMobile</h3>
+        <p>Hotline:
+            <a href="tel:0900000000">0900 000 000</a>
+        </p>
+
+        <p>&copy; 2026 ĐộMobile. All rights reserved.</p>
+    </footer>
 </body>
+
 </html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập - ĐộMobile</title>
+    <link rel="stylesheet" href="../../css/DangNhap/dangnhap.css">
+</head>
+<body>
+
+    <div class="login-box">
+        <!-- Nút thoát: quay về trang chủ -->
+        <a href="../../index.html" class="btn-exit" title="Thoát">&times;</a>
+
+        <img src="../../image/Gemini_Generated_Image_g85dxg85dxg85dxg-removebg-preview.png" alt="Logo" class="logo">
+        <h2>Đăng Nhập</h2>
+
+        <form id="loginForm" novalidate>
+            <div class="field">
+                <label for="username">Tài khoản</label>
+                <input type="text" id="username" placeholder="Nhập tài khoản" autocomplete="username">
+            </div>
+
+            <div class="field">
+                <label for="password">Mật khẩu</label>
+                <div class="pass-wrap">
+                    <input type="password" id="password" placeholder="12 - 22 ký tự" maxlength="22" autocomplete="current-password">
+                    <button type="button" id="togglePass" class="toggle">Hiện</button>
+                </div>
+
+                <ul class="rules" id="rules">
+                    <li data-rule="length">Từ 12 đến 22 ký tự</li>
+                    <li data-rule="letter">Có chữ cái</li>
+                    <li data-rule="number">Có ít nhất 1 chữ số</li>
+                    <li data-rule="special">Có ít nhất 1 ký tự đặc biệt (!@#$%...)</li>
+                </ul>
+            </div>
+
+            <div class="error" id="errorMsg"></div>
+
+            <button type="submit" class="btn-login">Đăng nhập</button>
+            <a href="../../index.html" class="btn-cancel">Thoát</a>
+        </form>
+    </div>
+
+    <!-- POPUP đăng nhập thành công -->
+    <div class="overlay" id="popup">
+        <div class="popup-box">
+            <div class="check">✔</div>
+            <h3>Đăng nhập thành công!</h3>
+            <p>Đang chuyển đến trang Mua Sắm...</p>
+            <button type="button" id="goNow" class="btn-login">Đến Mua Sắm ngay</button>
+        </div>
+    </div>
+
+    <script>
+        const form      = document.getElementById("loginForm");
+        const username  = document.getElementById("username");
+        const password  = document.getElementById("password");
+        const errorMsg  = document.getElementById("errorMsg");
+        const popup     = document.getElementById("popup");
+        const toggle    = document.getElementById("togglePass");
+        const rules     = document.querySelectorAll("#rules li");
+
+        const SHOP_PAGE = "../MuaSam/muasam.html";
+
+        // Kiểm tra từng điều kiện của mật khẩu
+        function checkPassword(value) {
+            return {
+                length:  value.length >= 12 && value.length <= 22,
+                letter:  /[A-Za-z]/.test(value),
+                number:  /\d/.test(value),
+                special: /[^A-Za-z0-9\s]/.test(value)
+            };
+        }
+
+        // Cập nhật danh sách điều kiện khi đang gõ
+        password.addEventListener("input", () => {
+            const result = checkPassword(password.value);
+            rules.forEach(li => {
+                li.classList.toggle("ok", result[li.dataset.rule]);
+            });
+            errorMsg.textContent = "";
+        });
+
+        // Hiện / ẩn mật khẩu
+        toggle.addEventListener("click", () => {
+            const show = password.type === "password";
+            password.type = show ? "text" : "password";
+            toggle.textContent = show ? "Ẩn" : "Hiện";
+        });
+
+        // Bấm đăng nhập
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            if (username.value.trim() === "") {
+                errorMsg.textContent = "Vui lòng nhập tài khoản.";
+                username.focus();
+                return;
+            }
+
+            const result = checkPassword(password.value);
+            if (!result.length) {
+                errorMsg.textContent = "Mật khẩu phải từ 12 đến 22 ký tự.";
+                return;
+            }
+            if (!result.letter || !result.number || !result.special) {
+                errorMsg.textContent = "Mật khẩu phải có chữ cái, chữ số và ký tự đặc biệt.";
+                return;
+            }
+
+            // Thành công: hiện popup rồi chuyển trang
+            errorMsg.textContent = "";
+            popup.classList.add("show");
+            setTimeout(() => { window.location.href = SHOP_PAGE; }, 2500);
+        });
+
+        // Bấm nút trong popup để đi ngay
+        document.getElementById("goNow").addEventListener("click", () => {
+            window.location.href = SHOP_PAGE;
+        });
+
+        // Nhấn phím Esc để thoát
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") window.location.href = "../../index.html";
+        });
+    </script>
+</body>
+</html>

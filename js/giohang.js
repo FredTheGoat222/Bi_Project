@@ -85,7 +85,7 @@ function renderCart() {
         <div style="text-align: center; padding: 40px 0;">
           <i class="fa-solid fa-cart-flatbed" style="font-size: 48px; color: #ccc; margin-bottom: 15px;"></i>
           <p style="color: #666; font-size: 16px;">Giỏ hàng của bạn đang trống!</p>
-          <a href="../MuaSam/MuaSam.html" style="color: #5b86e5; text-decoration: none; font-weight: bold; margin-top: 12px; display: inline-block;">
+          <a href="../MuaSam/muasam.html" style="color: #5b86e5; text-decoration: none; font-weight: bold; margin-top: 12px; display: inline-block;">
             <i class="fa-solid fa-arrow-left"></i> Quay lại trang Mua Sắm ngay
           </a>
         </div>
